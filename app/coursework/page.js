@@ -43,13 +43,10 @@ function ModuleCard({ mod, onClick, index }) {
       className="card-glass rounded-xl p-5 text-left w-full group hover:border-slate-600/60 transition-all duration-200 flex flex-col gap-3 animate-fade-in"
       style={{ animationDelay: `${index * 40}ms`, animationFillMode: 'both', opacity: 0 }}
     >
-      {/* Top row: code + grade */}
-      <div className="flex items-start justify-between gap-2">
+      {/* Top row: code */}
+      <div className="flex items-start gap-2">
         <span className={`font-mono text-xs px-2 py-0.5 rounded border ${ps.badge}`}>
           {mod.code}
-        </span>
-        <span className={`font-mono text-xs px-2 py-0.5 rounded border ${gradeStyle(mod.grade)}`}>
-          {mod.grade}
         </span>
       </div>
 
@@ -124,12 +121,6 @@ function ModuleDrawer({ mod, onClose }) {
             <div className="flex items-center gap-2 mb-2">
               <span className={`font-mono text-xs px-2 py-0.5 rounded border ${ps.badge}`}>
                 {mod.code}
-              </span>
-              <span className={`font-mono text-xs px-2 py-0.5 rounded border ${gradeStyle(mod.grade)}`}>
-                {mod.grade}
-                {mod.gp !== null && (
-                  <span className="ml-1 opacity-60">({mod.gp?.toFixed(2)})</span>
-                )}
               </span>
             </div>
             <h2 className="text-lg font-semibold text-slate-100 leading-snug">{mod.title}</h2>
@@ -270,12 +261,10 @@ export default function CourseworkPage() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
+          <div className="grid grid-cols-2 gap-4 mb-10">
             {[
-              { label: 'Total AU',      value: totalAU,    sub: 'all modules'     },
-              { label: 'Selected AU',   value: selectedAU, sub: 'current filters' },
-              { label: 'Total CGPA',   value: totalCGPA,  sub: 'all modules'     },
-              { label: 'Selected GPA', value: selectedGPA,sub: 'current filters' },
+              { label: 'Total AU',    value: totalAU,    sub: 'all modules'     },
+              { label: 'Selected AU', value: selectedAU, sub: 'current filters' },
             ].map(({ label, value, sub }) => (
               <div key={label} className="card-glass rounded-xl px-5 py-4">
                 <p className="text-2xl font-bold text-cyan-400 font-mono">{value}</p>
@@ -448,25 +437,6 @@ export default function CourseworkPage() {
             </div>
           )}
 
-          {/* Legend */}
-          <div className="mt-12 card-glass rounded-xl p-5 flex flex-wrap gap-4">
-            <p className="text-xs font-mono text-slate-600 uppercase tracking-widest self-center">Grade scale</p>
-            {[
-              { g: 'A+',  gp: '5.00',          s: gradeStyle('A+')   },
-              { g: 'A',   gp: '5.00',          s: gradeStyle('A')    },
-              { g: 'A-',  gp: '4.50',          s: gradeStyle('A-')   },
-              { g: 'B+',  gp: '4.00',          s: gradeStyle('B+')   },
-              { g: 'B',   gp: '3.50',          s: gradeStyle('B')    },
-              { g: 'PASS',gp: 'FGO',           s: gradeStyle('PASS') },
-              { g: 'EX',  gp: 'Exempted',      s: gradeStyle('EX')   },
-              { g: 'NA',  gp: 'Not yet graded',s: gradeStyle('NA')   },
-            ].map(({ g, gp, s }) => (
-              <div key={g} className="flex items-center gap-1.5">
-                <span className={`font-mono text-xs px-2 py-0.5 rounded border ${s}`}>{g}</span>
-                <span className="text-xs text-slate-600 font-mono">{gp}</span>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
 
