@@ -54,8 +54,16 @@ export default function Home() {
             </p>
 
             {/* Bio */}
-            <p className="text-slate-500 leading-relaxed mb-10 max-w-2xl animate-slide-up delay-300">
+            <p className="text-slate-500 leading-relaxed mb-4 max-w-2xl animate-slide-up delay-300">
               {personalInfo.bio}
+            </p>
+
+            {/* Role targets */}
+            <p className="text-slate-400 leading-relaxed mb-10 max-w-2xl animate-slide-up delay-300">
+              Based in Singapore — open to full-time roles in{' '}
+              <span className="text-cyan-400 font-medium">Data Analytics</span>,{' '}
+              <span className="text-cyan-400 font-medium">Data Science</span>, and{' '}
+              <span className="text-cyan-400 font-medium">AI/ML Engineering</span>.
             </p>
 
             {/* CTAs */}
