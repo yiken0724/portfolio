@@ -170,10 +170,6 @@ function ModuleDrawer({ mod, onClose }) {
             <div className="rounded-lg border border-dashed border-slate-700/50 p-6 text-center">
               <StickyNote size={20} className="text-slate-700 mx-auto mb-2" />
               <p className="text-xs text-slate-600">No notes yet.</p>
-              <p className="text-xs text-slate-700 mt-1">
-                Add a <code className="text-slate-600">notes</code> field in{' '}
-                <code className="text-slate-600">lib/data.js</code> for this module.
-              </p>
             </div>
           )}
         </div>

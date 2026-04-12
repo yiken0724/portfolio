@@ -32,12 +32,26 @@ export default function ExperiencePage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
 
           {/* Timeline */}
-          <div className="lg:col-span-2">
-            <h2 className="text-lg font-semibold text-slate-200 mb-8 flex items-center gap-2">
-              <span className="w-6 h-px bg-cyan-500/60" />
-              Work History
-            </h2>
-            <ExperienceTimeline items={experience} />
+          <div className="lg:col-span-2 space-y-14">
+
+            {/* Internship Experience */}
+            <div>
+              <h2 className="text-lg font-semibold text-slate-200 mb-8 flex items-center gap-2">
+                <span className="w-6 h-px bg-cyan-500/60" />
+                Internship Experience
+              </h2>
+              <ExperienceTimeline items={experience.filter(e => e.group === 'Internship')} />
+            </div>
+
+            {/* Teaching Experience */}
+            <div>
+              <h2 className="text-lg font-semibold text-slate-200 mb-8 flex items-center gap-2">
+                <span className="w-6 h-px bg-cyan-500/60" />
+                Teaching Experience
+              </h2>
+              <ExperienceTimeline items={experience.filter(e => e.group === 'Teaching')} />
+            </div>
+
           </div>
 
           {/* Sidebar */}
