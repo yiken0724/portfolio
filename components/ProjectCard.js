@@ -1,6 +1,6 @@
 'use client';
 
-import { ExternalLink, Github } from 'lucide-react';
+import { ExternalLink, Github, FileText } from 'lucide-react';
 import { categoryColors } from '@/lib/utils';
 
 export default function ProjectCard({ project, index = 0 }) {
@@ -32,6 +32,17 @@ export default function ProjectCard({ project, index = 0 }) {
 
         {/* Links */}
         <div className="flex items-center gap-2 shrink-0">
+          {project.report && (
+            <a
+              href={project.report}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-1.5 rounded-md text-slate-500 hover:text-rose-400 hover:bg-rose-500/10 transition-colors"
+              aria-label="Project Report"
+            >
+              <FileText size={16} />
+            </a>
+          )}
           {project.github && (
             <a
               href={project.github}
